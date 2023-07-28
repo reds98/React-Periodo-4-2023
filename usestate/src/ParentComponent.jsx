@@ -1,5 +1,5 @@
 import React,{useState} from "react";
-
+import ChildComponent from "./ChildComponent";
 function ParentComponent(){
 
     const [name,setName]=useState("Juan")
@@ -9,6 +9,9 @@ function ParentComponent(){
         {nombre:"RAUL",peso:90},
         {nombre:"ANA",peso:70}
     ])
+    const incrementarEdadAmigo=()=>{
+        setFriend({...friend,age:friend.age+1})
+    }
 
     return (
         <div>
@@ -20,6 +23,9 @@ function ParentComponent(){
             {hobbies.map((hobby)=><p>{hobby}</p>)}
 
             {enemigos.map((enemigo)=><h3>{enemigo.nombre}</h3>)}
+            <button onClick={incrementarEdadAmigo} > Aumentar Edad</button>
+            <h3>----------------------------</h3>
+            <ChildComponent friend={friend} />
         </div>
     )
 }
