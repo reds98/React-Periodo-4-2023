@@ -4,10 +4,11 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import UserInfo from './UserInfo'
 import CreationNumber from './CreationNumber'
+import NumberList from './NumbersList'
 function App() {
   const [count, setCount] = useState(0)
   const [usuario, setUsuario] = useState({ nombre: "Miguel", edad: 45 })
-
+  const [numeros,setNumeros]=useState([])
   return (
     <>
       <div className="container text-center">
@@ -16,12 +17,18 @@ function App() {
             <UserInfo usuario={usuario} />
           </div>
           <div className="col">
-            <CreationNumber />
+            <CreationNumber numeros={numeros}
+            setNumeros={setNumeros} />
           </div>
 
         </div>
-      </div>
+        <div className="row">
+          <div className="col">
+            <NumberList numeros={numeros} />
+          </div>
+        </div>
 
+      </div>
 
     </>
   )
